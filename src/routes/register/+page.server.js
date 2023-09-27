@@ -5,12 +5,12 @@ import { generateUsername } from '../../lib/pocketbase';
 export const actions = {
 	register: async ({ locals, request }) => {
 		const formData = await request.formData();
-		console.log(formData);
+		// console.log(formData);
 		const data = Object.fromEntries(formData);
-		console.log(data);
+		// console.log(data);
 		try {
 			await locals.pb.collection('users').create(data);
-			// await locals.pb.collection('users').requestVerification(data.email);
+			await locals.pb.collection('users').requestVerification(data.email);
 		} catch (e) {
 			console.error(e);
 			throw e;
