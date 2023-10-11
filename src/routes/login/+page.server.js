@@ -2,10 +2,12 @@ import { error, redirect } from '@sveltejs/kit';
 
 export const actions = {
 	login: async ({ request, locals }) => {
-		const body = Object.fromEntries(await request.formData());
+		const formData = await request.formData();
+		const data = Object.fromEntries(formData);
+		// console.log(body.email);
 
 		try {
-			await locals.pb.collection('users').authWithPassword(body.email, body.password);
+			await locals.pb.collection('users').authWithPassword(data.email, data.password);
 			if (!locals.pb?.authStore?.model?.verified) {
 				locals.pb.authStore.clear();
 				return {

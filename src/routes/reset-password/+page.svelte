@@ -21,7 +21,6 @@
 		<div class="w-full max-w-md pt-2">
 			<button type="submit" class="btn btn-primary w-full">Request Password Reset</button>
 		</div>
-
 		{#if form?.success}
 			<div class="alert alert-success shadow-lg w-full max-w-md">
 				<svg
@@ -36,7 +35,7 @@
 						d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
 					/></svg
 				>
-				<span>An email has been sent to reset your password!</span>
+				<span>An email has been sent to reset your password</span>
 			</div>
 		{/if}
 	</form>
